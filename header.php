@@ -35,23 +35,32 @@ $id = '';
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
-                </li>
+
                 <?php
                 if (isset($_SESSION['logged-in'])){
-                    echo '<li class="nav-item">
+                    echo ' <li class="nav-item active">
+                    <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="galery.php">Gallery</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contacts.php">Contacts</a>
                 </li>
-               
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="upload.php">Admin</a>
                 </li>';
                 }else{
-                    echo '<li class="nav-item">
+                    echo ' <li class="nav-item active">
+                    <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+                </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="galery.php">Gallery</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="contacts.php">Contacts</a>
                 </li>
                 <li class="nav-item">
@@ -59,10 +68,6 @@ $id = '';
                 </li>';
                 }
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="upload.php">Admin</a>
-                </li>
-
             </ul>
         </div>
     </nav>

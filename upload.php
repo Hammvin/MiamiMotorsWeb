@@ -20,48 +20,48 @@ if(isset($_POST["submit"])||!empty($_FILES["fileToUpload"]["name"])) {
         $check["mime"];
         $uploadOk = 1;
         if (file_exists($target_file)) {
-            echo "File already exists.";
+            echo "File already exists. ";
             $uploadOk = 0;
         }
-        // Check file size
+//         Check file size
         if ($_FILES["fileToUpload"]["size"] > 500000) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
 
-    } else {
+//    } else {
 
 //        Check image type
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-            echo "Only JPG, JPEG & PNG files are allowed.";
-            $uploadOk = 0;
+//        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+//            echo "Only JPG, JPEG & PNG files are allowed.";
+//            $uploadOk = 0;
 
+
+        }
+//    }
+
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded. ";
             //Pull all data from the DB table
             $sql = "SELECT * FROM `units` WHERE link = '$target_file'";
             $result = mysqli_query($conn, $sql);
 
 //            Check existence of the record.
             if (mysqli_num_rows($result) > 0){
-                echo "Record exists in the DB";
+                echo "Record exists in the DB. ";
             }else{
-                //    through the data to the db
+                //    throw the data to the db
                 $sql = "INSERT INTO `units`(`id`, `name`, `price`, `link`, `description`) VALUES (NULL ,'$name','$price','$target_file','$details')";
                 if (mysqli_query($conn, $sql)){
-                    echo "Record inserted successfully";
+                    echo "Record inserted successfully. ";
                 }else{
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
             }
 
-        }
-        $uploadOk = 0;
-    }
-
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-    } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
@@ -91,10 +91,8 @@ if(isset($_POST["submit"])||!empty($_FILES["fileToUpload"]["name"])) {
                     <input type="submit" value="Upload" name="submit" class="btn btn-info ">
                 </form>
 
-            </div>
+           </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
         </div>
     </div>
 
-
-<?php include 'footer.php'; ?>

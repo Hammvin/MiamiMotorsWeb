@@ -48,7 +48,7 @@ if(isset($_POST['loginBtn'])){
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <h4 style="text-align: center" class="text-dark">Login Here</h4>
+            <h4 style="text-align: center; font-family: 'DejaVu Serif Condensed'" class="text-success ">Login Here</h4>
             <hr>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>

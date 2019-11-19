@@ -1,6 +1,8 @@
 <?php include 'header.php';
 include 'config.php';
 
+$id = '';
+
 if (isset($_GET['id'])){
     $id = $_GET['id'];
 
@@ -22,18 +24,21 @@ if (isset($_GET['id'])){
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <img src="<?php echo $image?>" alt="">
-            <input type="text" name="">
+            <a href='<?php echo "update.php?id=$id"?>'>
+                <img src="<?php echo $image?>" alt="" class="img-thumbnail">
+            </a>
+
             <h5><?php echo $name?></h5>
             <h5><?php echo "Ksh.".$price?></h5>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <textarea name="details" id="" cols="90" rows="10"><?php echo $details?></textarea>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <textarea name="details" id="" cols="90" rows="10" class="form-control"><?php echo $details?></textarea>
         </div>
     </div>
 </div>
 
-<?php
 
+<?php
+include 'footer.php';
 
 ?>

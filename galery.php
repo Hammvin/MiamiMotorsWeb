@@ -4,7 +4,7 @@ include 'config.php';
 ?>
 
 <div class="container">
-    <h2 style="text-align: center">Users</h2>
+    <h2 style="text-align: center; font-family: 'DejaVu Serif'">Available Units</h2>
     <?php
     $sql = "SELECT * FROM `units`";
 
@@ -24,7 +24,7 @@ include 'config.php';
         echo "<div class='img-thumbnail'>";
         echo "<a href='details.php?id=$id'>";
         echo "<img src='$link' class='img-thumbnail'>";
-        echo "<h5>$name</h5> ";
+        echo "<h5>$name</h5>";
         echo "<h5>$price</h5>";
         echo "</a>";
         echo "</div>";
